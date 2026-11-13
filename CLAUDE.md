@@ -1,0 +1,62 @@
+# AGENTS.md
+
+Universal instructions for AI coding agents. This file is read by Claude Code, OpenCode, Codex, Cursor, Junie and every tool that supports the [AGENTS.md](https://agents.md) convention. Tool-specific files (`.claude/`, `.github/`, `.opencode/`, `.junie/`, `.cursor/`) add the same rules in each tool's own format.
+
+## What this toolkit provides
+
+- **A three-role engineering team**: `planner`, `codebase-explorer`, `implementer`.
+- **A source-backed standards skill**: `engineering-standards` — 175 rules across 12 domains, every rule traced to a verified source document.
+
+## The team
+
+| Role | Owns | Never |
+|---|---|---|
+| `planner` | decomposition, exploration dispatch, the plan, the approval gate | writes code, commits, pushes, deploys |
+| `codebase-explorer` | read-only investigation; evidence with file paths and line numbers | writes or edits files, decides the design |
+| `implementer` | the code, the tests, the validation, commit/push/deploy when the plan authorizes it | rewrites the plan, touches a file another implementer owns |
+
+## Workflow
+
+1. **Classify complexity before delegating.** Low (one file, mechanical) → no exploration, one implementer. Medium (one subsystem, 1–2 unknown areas) → 1–2 explorers in parallel. High (several subsystems, uncertain scope) → 3–4 explorers in parallel, one angle each.
+2. **Explore with distinct angles.** Never ask two explorers the same question.
+3. **Write the plan, then stop.** The plan states the objective, the current state with evidence, the decisions, numbered steps with the exact files each may touch, the assignment per implementer, what is out of scope, and the risks. **No code is written until a human approves the plan.**
+4. **Implement after approval.** One implementer per step. Steps with disjoint files run in parallel; steps with dependencies run in series.
+5. **Verify independently.** A verifier checks the result against the acceptance criteria. It judges, it does not fix.
+
+## Rules of engagement
+
+- **One owner per file.** Two writers on the same file is the failure mode this team exists to prevent. If two steps need the same file, they are one step or they are serial.
+- **Cite the standard.** When a rule from the `engineering-standards` skill drives a decision, cite its ID (`SEC-09`, `RFC9457`, `TEST-PYRAMID`) next to that decision. An uncited standard is an unchecked standard.
+- **Verify identifiers against the source.** Never cite a requirement identifier from memory — fetch the published list and confirm it exists. A plausible-but-wrong identifier is worse than none, because it looks checkable.
+- **Flag what you skipped.** Silence about an unapplied rule reads as compliance.
+- **Never claim work you did not run.** Report the real command and its real output. "Tests pass" without the output is not a validation.
+- **Never write code without an approved plan.** The approval gate is the point of the system, not an obstacle to it.
+- **Never push or deploy beyond the granted scope.** Commit, push and deploy happen only when the approved plan says so, and never with a force-push, a rewritten published history, or a direct push to a protected branch.
+
+## Applying the standards skill
+
+Load the `engineering-standards` skill before planning or writing non-trivial code. Pick only the domains the task touches (two or three files is typical) and read them before writing, not after. Each applicable rule must produce a concrete artifact — a validation at the boundary, a test, a config default, a doc section — and be cited by ID in the report.
+
+## Where the tool-specific files live
+
+| Tool | Agents | Skill | Project instructions |
+|---|---|---|---|
+| Claude Code | `.claude/agents/*.md` | `.claude/skills/engineering-standards/` | `.claude/CLAUDE.md` |
+| GitHub Copilot | `.github/agents/*.agent.md` | `.github/skills/engineering-standards/` | `.github/copilot-instructions.md` |
+| OpenCode | `.opencode/agent/*.md` | `.opencode/skill/engineering-standards/` | `AGENTS.md` |
+| JetBrains Junie | — | — | `.junie/guidelines.md` |
+| Cursor | — | — | `.cursor/rules/*.mdc` |
+| Any AGENTS.md-aware tool | — | — | `AGENTS.md` |
+
+## Repository layout
+
+```
+src/agents/            canonical agent definitions (edit here)
+src/skills/            canonical skill (edit here)
+src/tools.json         per-tool frontmatter rules used by the generator
+scripts/build.mjs      generates the per-tool files and verifies they are in sync
+scripts/install.ps1    installs into a machine (Windows / PowerShell)
+scripts/install.sh     installs into a machine (macOS / Linux)
+```
+
+Run `node scripts/build.mjs` after editing anything under `src/`. CI runs `node scripts/build.mjs --check` and fails when the generated files drift.
