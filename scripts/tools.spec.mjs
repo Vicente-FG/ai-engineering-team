@@ -121,7 +121,7 @@ export const STATIC_FILES = [
       'alwaysApply: true',
       '---',
       '',
-      body.replace(/^#\s+AGENTS\.md\s*/i, '# AI Engineering Team'),
+      body.replace(/^#\s+AGENTS\.md[ \t]*\r?\n/i, '# Engineering Team Toolkit\n'),
     ].join('\n'),
     from: 'AGENTS.md',
   },

@@ -1,14 +1,14 @@
 {
-  "name": "ai-engineering-team",
-  "displayName": "AI Engineering Team",
+  "name": "engineering-team-toolkit",
+  "displayName": "Engineering Team Toolkit",
   "version": "1.0.0",
   "description": "A planner / codebase-explorer / implementer agent team plus the source-backed engineering-standards skill, portable across Claude Code, GitHub Copilot, OpenCode, Junie, Cursor and any AGENTS.md-aware tool.",
   "author": {
     "name": "Vicente Flores",
     "url": "https://github.com/Vicente-FG"
   },
-  "homepage": "https://github.com/Vicente-FG/ai-engineering-team",
-  "repository": "https://github.com/Vicente-FG/ai-engineering-team",
+  "homepage": "https://github.com/Vicente-FG/engineering-team-toolkit",
+  "repository": "https://github.com/Vicente-FG/engineering-team-toolkit",
   "license": "MIT",
   "keywords": [
     "agents",

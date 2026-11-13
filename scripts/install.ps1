@@ -1,6 +1,6 @@
 <#
 .SYNOPSIS
-    Installs the AI engineering team (agents + standards skill) into a project or into your user config.
+    Installs the engineering team toolkit (agents + standards skill) into a project or into your user config.
 
 .DESCRIPTION
     Project scope copies the per-tool folders (.claude, .github, .opencode, .agents, .junie, .cursor)

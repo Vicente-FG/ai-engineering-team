@@ -1,4 +1,4 @@
-# AI Engineering Team
+# Engineering Team Toolkit
 
 A three-role agent team and a source-backed engineering standards skill, packaged so the same content loads correctly in **Claude Code**, **GitHub Copilot**, **OpenCode**, **JetBrains Junie**, **Cursor** and **OpenAI Codex**.
 
@@ -17,22 +17,22 @@ planner ──▶ codebase-explorer × N ──▶ plan ──▶ [human approva
 ### Claude Code — as a plugin (recommended)
 
 ```bash
-/plugin marketplace add Vicente-FG/ai-engineering-team
-/plugin install ai-engineering-team@vicentefg-tools
+/plugin marketplace add Vicente-FG/engineering-team-toolkit
+/plugin install engineering-team-toolkit@vicentefg-tools
 ```
 
 Or from the shell:
 
 ```bash
-claude plugin marketplace add Vicente-FG/ai-engineering-team
-claude plugin install ai-engineering-team@vicentefg-tools
+claude plugin marketplace add Vicente-FG/engineering-team-toolkit
+claude plugin install engineering-team-toolkit@vicentefg-tools
 ```
 
 ### GitHub Copilot
 
 ```bash
-gh skill install Vicente-FG/ai-engineering-team engineering-standards          # project scope
-gh skill install Vicente-FG/ai-engineering-team engineering-standards --scope user
+gh skill install Vicente-FG/engineering-team-toolkit engineering-standards          # project scope
+gh skill install Vicente-FG/engineering-team-toolkit engineering-standards --scope user
 ```
 
 The Copilot custom agents (`planner`, `codebase-explorer`, `implementer`) live in `.github/agents/`. To use them in your own repository, copy that folder across, or run the installer below.

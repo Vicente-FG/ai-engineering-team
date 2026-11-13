@@ -8,8 +8,8 @@
   },
   "plugins": [
     {
-      "name": "ai-engineering-team",
-      "displayName": "AI Engineering Team",
+      "name": "engineering-team-toolkit",
+      "displayName": "Engineering Team Toolkit",
       "description": "Planner, codebase-explorer and implementer agents plus the engineering-standards skill (175 rules, every one traced to a verified source).",
       "source": "./plugin",
       "category": "development",
@@ -17,8 +17,8 @@
         "name": "Vicente Flores",
         "url": "https://github.com/Vicente-FG"
       },
-      "homepage": "https://github.com/Vicente-FG/ai-engineering-team",
-      "repository": "https://github.com/Vicente-FG/ai-engineering-team",
+      "homepage": "https://github.com/Vicente-FG/engineering-team-toolkit",
+      "repository": "https://github.com/Vicente-FG/engineering-team-toolkit",
       "license": "MIT"
     }
   ]

@@ -3,7 +3,9 @@ description: The planner / codebase-explorer / implementer team and its workflow
 alwaysApply: true
 ---
 
-# AI Engineering TeamUniversal instructions for AI coding agents. This file is read by Claude Code, OpenCode, Codex, Cursor, Junie and every tool that supports the [AGENTS.md](https://agents.md) convention. Tool-specific files (`.claude/`, `.github/`, `.opencode/`, `.junie/`, `.cursor/`) add the same rules in each tool's own format.
+# Engineering Team Toolkit
+
+Universal instructions for AI coding agents. This file is read by Claude Code, OpenCode, Codex, Cursor, Junie and every tool that supports the [AGENTS.md](https://agents.md) convention. Tool-specific files (`.claude/`, `.github/`, `.opencode/`, `.junie/`, `.cursor/`) add the same rules in each tool's own format.
 
 ## What this toolkit provides
 
