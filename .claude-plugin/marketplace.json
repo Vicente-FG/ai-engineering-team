@@ -1,0 +1,25 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "vicentefg-tools",
+  "description": "Personal marketplace of AI engineering tools: agent teams and source-backed standards.",
+  "owner": {
+    "name": "Vicente Flores",
+    "url": "https://github.com/Vicente-FG"
+  },
+  "plugins": [
+    {
+      "name": "ai-engineering-team",
+      "displayName": "AI Engineering Team",
+      "description": "Planner, codebase-explorer and implementer agents plus the engineering-standards skill (175 rules, every one traced to a verified source).",
+      "source": "./plugin",
+      "category": "development",
+      "author": {
+        "name": "Vicente Flores",
+        "url": "https://github.com/Vicente-FG"
+      },
+      "homepage": "https://github.com/Vicente-FG/ai-engineering-team",
+      "repository": "https://github.com/Vicente-FG/ai-engineering-team",
+      "license": "MIT"
+    }
+  ]
+}
