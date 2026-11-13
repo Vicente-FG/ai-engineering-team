@@ -1,6 +1,6 @@
 # Contributing
 
-This repository is published as a **read-only distribution point**. The maintainer holds the only write access, and the default branch is protected so that no change lands without a reviewed pull request.
+This repository is published as a **read-only distribution point**. The maintainer holds the only write access, and the default branch is protected so that no change lands without a pull request.
 
 That is deliberate: the contents are a versioned standard, not a community codebase. If a change were merged casually, users installing from `main` would silently receive a different set of rules than the ones their teammates verified.
 
@@ -14,6 +14,20 @@ That is deliberate: the contents are a versioned standard, not a community codeb
    - `scripts/tools.spec.mjs` — the per-tool frontmatter rules
 3. **Regenerate** the per-tool files: `node scripts/build.mjs`.
 4. **Open a pull request** from your fork against this repository's `main`, describing which source you changed and why.
+
+## Branch protection
+
+`main` is protected with a ruleset that applies these rules:
+
+| Rule | Setting |
+|---|---|
+| Require a pull request before merging | on, 0 approvals required |
+| Require conversation resolution before merging | on |
+| Block force pushes | on |
+| Block branch deletion | on |
+| Allowed merge methods | merge, squash, rebase |
+
+The maintainer is the only bypass actor, so nobody else can write to `main` under any circumstance. Contributors have to fork the repository and open a pull request, which the maintainer merges after review.
 
 ## What a pull request must include
 

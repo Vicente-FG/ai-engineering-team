@@ -12,3 +12,7 @@ venv/
 .tooling/
 .idea/
 .vscode/
+
+# Local publishing workspace (payloads and per-tool generated copies of it)
+.publish/
+.install-test/
