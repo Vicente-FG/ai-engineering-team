@@ -44,22 +44,28 @@ Load the `engineering-standards` skill before planning or writing non-trivial co
 
 | Tool | Agents | Skill | Project instructions |
 |---|---|---|---|
-| Claude Code | `.claude/agents/*.md` | `.claude/skills/engineering-standards/` | `.claude/CLAUDE.md` |
+| Claude Code | `.claude/agents/*.md` | `.claude/skills/engineering-standards/` | `CLAUDE.md` |
 | GitHub Copilot | `.github/agents/*.agent.md` | `.github/skills/engineering-standards/` | `.github/copilot-instructions.md` |
-| OpenCode | `.opencode/agent/*.md` | `.opencode/skill/engineering-standards/` | `AGENTS.md` |
-| JetBrains Junie | — | — | `.junie/guidelines.md` |
-| Cursor | — | — | `.cursor/rules/*.mdc` |
-| Any AGENTS.md-aware tool | — | — | `AGENTS.md` |
+| OpenCode | `.opencode/agents/*.md` | `.opencode/skills/engineering-standards/` | `AGENTS.md` |
+| JetBrains Junie | — | `.agents/skills/engineering-standards/` | `.junie/AGENTS.md` |
+| Cursor | — | `.agents/skills/engineering-standards/` | `.cursor/rules/*.mdc` |
+| OpenAI Codex | — | — | `AGENTS.md` |
+| Any AGENTS.md-aware tool | — | `.agents/skills/engineering-standards/` | `AGENTS.md` |
+
+`.agents/skills/` is the cross-platform location: Copilot, Cursor and Junie all read it.
 
 ## Repository layout
 
 ```
-src/agents/            canonical agent definitions (edit here)
-src/skills/            canonical skill (edit here)
-src/tools.json         per-tool frontmatter rules used by the generator
-scripts/build.mjs      generates the per-tool files and verifies they are in sync
-scripts/install.ps1    installs into a machine (Windows / PowerShell)
-scripts/install.sh     installs into a machine (macOS / Linux)
+plugin/agents/                       canonical agent definitions (edit here)
+plugin/skills/engineering-standards/ canonical skill (edit here)
+plugin/.claude-plugin/plugin.json    Claude Code plugin manifest
+AGENTS.md                             canonical shared instructions (edit here)
+scripts/tools.spec.mjs               per-tool frontmatter rules used by the generator
+scripts/build.mjs                    generates the per-tool files and verifies they are in sync
+scripts/lint-skill.mjs               validates the skill structure and the source registry
+scripts/install.ps1                  installs into a machine (Windows / PowerShell)
+scripts/install.sh                   installs into a machine (macOS / Linux)
 ```
 
-Run `node scripts/build.mjs` after editing anything under `src/`. CI runs `node scripts/build.mjs --check` and fails when the generated files drift.
+Run `node scripts/build.mjs` after editing anything under `plugin/` or `AGENTS.md`. CI runs `node scripts/build.mjs --check` and fails when the generated files drift.

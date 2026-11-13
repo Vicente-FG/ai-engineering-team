@@ -8,10 +8,10 @@ That is deliberate: the contents are a versioned standard, not a community codeb
 
 1. **Fork** the repository to your own account.
 2. **Make your change** in the fork. Edit only what belongs to you:
-   - `src/agents/*.md` — the canonical agent bodies
-   - `src/skills/engineering-standards/references/*.md` — the rules and their sources
-   - `src/skills/engineering-standards/SKILL.md` — the skill procedure
-   - `src/tools.json` — the per-tool frontmatter rules
+   - `plugin/agents/*.md` — the canonical agent bodies
+   - `plugin/skills/engineering-standards/references/*.md` — the rules and their sources
+   - `plugin/skills/engineering-standards/SKILL.md` — the skill procedure
+   - `scripts/tools.spec.mjs` — the per-tool frontmatter rules
 3. **Regenerate** the per-tool files: `node scripts/build.mjs`.
 4. **Open a pull request** from your fork against this repository's `main`, describing which source you changed and why.
 
@@ -23,10 +23,10 @@ That is deliberate: the contents are a versioned standard, not a community codeb
 
 ## Maintaining the standards
 
-The standards expire. The refresh procedure lives in `src/skills/engineering-standards/SKILL.md` and is driven by `scripts/check-sources.ps1`:
+The standards expire. The refresh procedure lives in `plugin/skills/engineering-standards/SKILL.md` and is driven by `scripts/check-sources.ps1`:
 
 ```powershell
-powershell -ExecutionPolicy Bypass -File src/skills/engineering-standards/scripts/check-sources.ps1
+powershell -ExecutionPolicy Bypass -File plugin/skills/engineering-standards/scripts/check-sources.ps1
 ```
 
 It reports every cited URL as reachable, redirected, dead or stale, and flags sources whose verification date is older than 180 days. Regenerate the registry with `--write-registry` after updating a source.
